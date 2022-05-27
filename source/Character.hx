@@ -160,11 +160,15 @@ class Character extends FlxSprite
 					animation.addByPrefix('prettyGoodAnim', 'PRETTY GOOD', 24, false);
 			
 					addOffset('idle');
-					addOffset("singUP", 24, 56);
+					//addOffset("singUP", 24, 56);
+					addOffset("singUP", 54, 49);
 					addOffset("oldSingUP", 24, 56);
-					addOffset("singRIGHT", -1, -7);
-					addOffset("singLEFT", 100, -14);
-					addOffset("singDOWN", 98, -90);
+					//addOffset("singRIGHT", -1, -7);
+					addOffset("singRIGHT", -20, -32);
+					//addOffset("singLEFT", 100, -14);
+					addOffset("singLEFT", 86, -13);
+					//addOffset("singDOWN", 98, -90);
+					addOffset("singDOWN", 70, -104);
 					addOffset("oldSingDOWN", 98, -90);
 					//addOffset("ughAnim", 45, 0);
 					addOffset("prettyGoodAnim", 45, 20);

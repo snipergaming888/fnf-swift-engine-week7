@@ -248,6 +248,7 @@ class PlayState extends MusicBeatState
 	var tankBop4:FlxSprite;
 	var tankBop5:FlxSprite;
 	var tankBop6:FlxSprite;
+	var foregroundSprites:FlxTypedGroup<BGSprite>;
 	var smokeRight:FlxSprite;
 	var smokeLeft:FlxSprite;
 	var picoStep:Ps;
@@ -278,7 +279,7 @@ class PlayState extends MusicBeatState
 	public static var ratingsd:String = "";
 	#end
 
-	var BGSprite:FlxSprite;
+	//var BGSprite:FlxSprite;
 
 	public var songStarted = false;
 
@@ -352,6 +353,7 @@ class PlayState extends MusicBeatState
 		camHUD = new FlxCamera();
 		camHUD2 = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
+		foregroundSprites = new FlxTypedGroup<BGSprite>();
 
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
@@ -1147,53 +1149,24 @@ class PlayState extends MusicBeatState
 
 							ground.updateHitbox();
 							add(ground);
-			
-							tankBop1 = new FlxSprite(-500,650);
-							tankBop1.frames = Paths.getSparrowAtlas('warzone/tank0', 'week7');
-							tankBop1.animation.addByPrefix('bop', 'fg tankhead far right', 24);
-							tankBop1.scrollFactor.set(1.7, 1.5);
-							tankBop1.antialiasing = true;
-							add(tankBop1);
-							
-			
-							tankBop2 = new FlxSprite(-300,750);
-							tankBop2.frames = Paths.getSparrowAtlas('warzone/tank1', 'week7');
-							tankBop2.animation.addByPrefix('bop','fg tankhead 5', 24);
-							tankBop2.scrollFactor.set(2.0, 0.2);
-							tankBop2.antialiasing = true;
-						    add(tankBop2);
-							
-			
-							tankBop3 = new FlxSprite(450,940);
-							tankBop3.frames = Paths.getSparrowAtlas('warzone/tank2', 'week7');
-							tankBop3.animation.addByPrefix('bop','foreground man 3', 24);
-							tankBop3.scrollFactor.set(1.5, 1.5);
-							tankBop3.antialiasing = true;
-						    add(tankBop3);
-							
-			
-							tankBop4 = new FlxSprite(1300,1200);
-							tankBop4.frames = Paths.getSparrowAtlas('warzone/tank3', 'week7');
-							tankBop4.animation.addByPrefix('bop','fg tankhead 4', 24);
-							tankBop4.scrollFactor.set(3.5, 2.5);
-							tankBop4.antialiasing = true;
-							add(tankBop4);
-							
-			
-							tankBop5 = new FlxSprite(1300,900);
-							tankBop5.frames = Paths.getSparrowAtlas('warzone/tank4', 'week7');
-							tankBop5.animation.addByPrefix('bop','fg tankman bobbin 3', 24);
-							tankBop5.scrollFactor.set(1.5, 1.5);
-							tankBop5.antialiasing = true;
-							add(tankBop5);
-							
-			
-							tankBop6 = new FlxSprite(1620,700);
-							tankBop6.frames = Paths.getSparrowAtlas('warzone/tank5', 'week7');
-							tankBop6.animation.addByPrefix('bop','fg tankhead far right', 24);
-							tankBop6.scrollFactor.set(1.5, 1.5);
-							tankBop6.antialiasing = true;
-						    add(tankBop6);
+
+							var bg:BGSprite = new BGSprite('warzone/tank0', -500, 650, 1.7, 1.5, ["fg tankhead far right instance"], true);
+							foregroundSprites.add(bg);
+		
+							var bg:BGSprite = new BGSprite('warzone/tank1', -300, 750, 2, 0.2, ["fg tankhead 5 instance"], true);
+							foregroundSprites.add(bg);
+		
+							var bg:BGSprite = new BGSprite('warzone/tank2', 450, 940, 1.5, 1.5, ["foreground man 3 instance"], true);
+							foregroundSprites.add(bg);
+		
+							var bg:BGSprite = new BGSprite('warzone/tank4', 1300, 900, 1.5, 1.5, ["fg tankman bobbin 3 instance"], true);
+							foregroundSprites.add(bg);
+		
+							var bg:BGSprite = new BGSprite('warzone/tank5', 1620, 700, 1.5, 1.5, ["fg tankhead far right instance"], true);
+							foregroundSprites.add(bg);
+		
+							var bg:BGSprite = new BGSprite('warzone/tank3', 1300, 1200, 3.5, 2.5, ["fg tankhead 4 instance"], true);
+							foregroundSprites.add(bg);
 							
 
 							}
@@ -1293,53 +1266,24 @@ class PlayState extends MusicBeatState
 	
 									ground.updateHitbox();
 									add(ground);
-					
-									tankBop1 = new FlxSprite(-500,650);
-									tankBop1.frames = Paths.getSparrowAtlas('warzone/tank0', 'week7');
-									tankBop1.animation.addByPrefix('bop', 'fg tankhead far right instance 1', 24);
-									tankBop1.scrollFactor.set(1.7, 1.5);
-									tankBop1.antialiasing = true;
-										add(tankBop1);
-									
-					
-									tankBop2 = new FlxSprite(-300,750);
-									tankBop2.frames = Paths.getSparrowAtlas('warzone/tank1', 'week7');
-									tankBop2.animation.addByPrefix('bop','fg tankhead 5 instance 1', 24);
-									tankBop2.scrollFactor.set(2.0, 0.2);
-									tankBop2.antialiasing = true;
-										add(tankBop2);
-									
-					
-									tankBop3 = new FlxSprite(450,940);
-									tankBop3.frames = Paths.getSparrowAtlas('warzone/tank2', 'week7');
-									tankBop3.animation.addByPrefix('bop','foreground man 3 instance 1', 24);
-									tankBop3.scrollFactor.set(1.5, 1.5);
-									tankBop3.antialiasing = true;
-										add(tankBop3);
-									
-					
-									tankBop4 = new FlxSprite(1300,1200);
-									tankBop4.frames = Paths.getSparrowAtlas('warzone/tank3', 'week7');
-									tankBop4.animation.addByPrefix('bop','fg tankhead 4 instance 1', 24);
-									tankBop4.scrollFactor.set(3.5, 2.5);
-									tankBop4.antialiasing = true;
-									add(tankBop4);
-									
-					
-									tankBop5 = new FlxSprite(1300,900);
-									tankBop5.frames = Paths.getSparrowAtlas('warzone/tank4', 'week7');
-									tankBop5.animation.addByPrefix('bop','fg tankman bobbin 3 instance 1', 24);
-									tankBop5.scrollFactor.set(1.5, 1.5);
-									tankBop5.antialiasing = true;
-									add(tankBop5);
-								
-					
-									tankBop6 = new FlxSprite(1620,700);
-									tankBop6.frames = Paths.getSparrowAtlas('warzone/tank5', 'week7');
-									tankBop6.animation.addByPrefix('bop','fg tankhead far right instance 1', 24);
-									tankBop6.scrollFactor.set(1.5, 1.5);
-									tankBop6.antialiasing = true;
-									add(tankBop6);
+
+									var bg:BGSprite = new BGSprite('warzone/tank0', -500, 650, 1.7, 1.5, ["fg tankhead far right instance"], true);
+									foregroundSprites.add(bg);
+				
+									var bg:BGSprite = new BGSprite('warzone/tank1', -300, 750, 2, 0.2, ["fg tankhead 5 instance"], true);
+									foregroundSprites.add(bg);
+				
+									var bg:BGSprite = new BGSprite('warzone/tank2', 450, 940, 1.5, 1.5, ["foreground man 3 instance"], true);
+									foregroundSprites.add(bg);
+				
+									var bg:BGSprite = new BGSprite('warzone/tank4', 1300, 900, 1.5, 1.5, ["fg tankman bobbin 3 instance"], true);
+									foregroundSprites.add(bg);
+				
+									var bg:BGSprite = new BGSprite('warzone/tank5', 1620, 700, 1.5, 1.5, ["fg tankhead far right instance"], true);
+									foregroundSprites.add(bg);
+				
+									var bg:BGSprite = new BGSprite('warzone/tank3', 1300, 1200, 3.5, 2.5, ["fg tankhead 4 instance"], true);
+									foregroundSprites.add(bg);
 									
 		                        }
 		          default:
@@ -1527,6 +1471,7 @@ class PlayState extends MusicBeatState
 
 				
 		add(boyfriend);
+		add(foregroundSprites);
 
 		var doof:DialogueBox = new DialogueBox(false, dialogue);
 		// doof.x += 70;
@@ -6400,22 +6345,10 @@ class PlayState extends MusicBeatState
 				bottomBoppers.animation.play('bop', true);
 				santa.animation.play('idle', true);
 			case 'warzone':
-				tankBop1.animation.play('bop', true);
-				tankBop2.animation.play('bop', true);
-				tankBop3.animation.play('bop', true);
-				tankBop4.animation.play('bop', true);
-				tankBop5.animation.play('bop', true);
-				tankBop6.animation.play('bop', true);
 				tower.animation.play('idle', true);
 				
 
 			case 'warzone-stress':
-				tankBop1.animation.play('bop', true);
-				tankBop2.animation.play('bop', true);
-				tankBop3.animation.play('bop', true);
-				tankBop4.animation.play('bop', true);
-				tankBop5.animation.play('bop', true);
-				tankBop6.animation.play('bop', true);
 				tower.animation.play('idle', true);	
 
 			case 'limo':

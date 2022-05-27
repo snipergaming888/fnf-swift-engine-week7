@@ -25,7 +25,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		bfneedstofade = false;
 		var daStage = PlayState.curStage;
 		var daBf:String = '';
-		switch (daStage)
+		switch (PlayState.SONG.stage)
 		{
 			case 'school':
 				stageSuffix = '-pixel';
@@ -33,9 +33,12 @@ class GameOverSubstate extends MusicBeatSubstate
 			case 'schoolEvil':
 				stageSuffix = '-pixel';
 				daBf = 'bf-pixel-dead';
+			case 'warzone-stress':
+			    daBf = 'bf-holding-gf-DEAD';
 			default:
 				daBf = 'bf';
 		}
+
 
 		super();
 
@@ -115,6 +118,11 @@ class GameOverSubstate extends MusicBeatSubstate
 		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.finished)
 		{
 			FlxG.sound.playMusic(Paths.music('gameOver' + stageSuffix));
+			if (PlayState.SONG.stage == 'warzone-stress' || PlayState.SONG.stage == 'warzone')
+				{
+					FlxG.sound.play(Paths.soundRandom('jeffGameover/jeffGameover-', 1, 25), FlxG.random.float(1, 1));
+					trace('hi jeff');
+				}
 		}
 
 		if (FlxG.sound.music.playing)
