@@ -3651,8 +3651,8 @@ class PlayState extends MusicBeatState
 			{
 				if (FlxG.save.data.newhealthheadbump)
 					{
-					iconP1.setGraphicSize(Std.int(FlxMath.lerp(iconP1.width, 150, 0.15)));
-					iconP2.setGraphicSize(Std.int(FlxMath.lerp(iconP2.width, 150, 0.15)));
+						iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, 0.85)));
+						iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, 0.85)));
 					}
 					else
 						{
